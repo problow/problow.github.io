@@ -127,6 +127,80 @@
   }
   renderReleases();
 
+  // Formspark application: show inline feedback and prevent in-flight duplicates.
+  // The HTML form's native POST remains a working fallback when JavaScript is disabled.
+  const applicationForm = $('#pb-application-form');
+  if (applicationForm && typeof window.fetch === 'function') {
+    const submitButton = applicationForm.querySelector('button[type="submit"]');
+    const feedback = $('#pb-form-feedback');
+    let submitting = false;
+
+    function showApplicationFeedback(message, isError = false) {
+      if (!feedback) return;
+      feedback.textContent = message;
+      feedback.hidden = !message;
+      feedback.style.color = isError ? '#ffbdbd' : '#e9e4df';
+      feedback.setAttribute('role', isError ? 'alert' : 'status');
+    }
+
+    applicationForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (submitting || !applicationForm.reportValidity()) return;
+
+      const fields = Object.fromEntries(new FormData(applicationForm).entries());
+      // Formspark expects nested _email settings in JSON AJAX submissions.
+      const emailSettings = {
+        subject: fields['_email.subject'],
+        from: fields['_email.from']
+      };
+      delete fields['_email.subject'];
+      delete fields['_email.from'];
+      fields._email = emailSettings;
+
+      submitting = true;
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-busy', 'true');
+      }
+      showApplicationFeedback('Sending your application...');
+
+      try {
+        const response = await fetch(applicationForm.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(fields)
+        });
+        if (!response.ok) {
+          if (response.status === 403) {
+            showApplicationFeedback('Your application could not be accepted. Please review your details and try again.', true);
+          } else if (response.status === 402) {
+            showApplicationFeedback('Applications are temporarily unavailable. Please try again later.', true);
+          } else {
+            showApplicationFeedback('Your application could not be sent. Please try again.', true);
+          }
+          return;
+        }
+
+        applicationForm.reset();
+        showApplicationFeedback('Application sent. Thanks for reaching out!');
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'generate_lead', { form_name: 'pro_blow_casting' });
+        }
+      } catch {
+        showApplicationFeedback('A connection error prevented submission. Please try again.', true);
+      } finally {
+        submitting = false;
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.removeAttribute('aria-busy');
+        }
+      }
+    });
+  }
+
   // GA4 runs only on the public production domain, not local preview/staging.
   const productionHosts = new Set(['theproblow.com', 'www.theproblow.com']);
   if (productionHosts.has(window.location.hostname)) {
