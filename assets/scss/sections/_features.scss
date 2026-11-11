@@ -1,0 +1,297 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Features Section
+--------------------------------------------------------------*/
+.features {
+  padding-top: 60px;
+  padding-bottom: 30px;
+
+  .features-overview {
+    display: flex;
+    margin-bottom: 60px;
+    gap: 40px;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+
+    .main-heading {
+      flex: 1;
+      padding-right: 20px;
+
+      h2 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: 17px;
+        line-height: 1.7;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+        margin-bottom: 30px;
+      }
+
+      .achievement-badges {
+        display: flex;
+        gap: 30px;
+        margin-top: 40px;
+
+        @media (max-width: 576px) {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .achievement {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+
+          .achievement-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: color-mix(in srgb, var(--accent-color), transparent 90%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            i {
+              font-size: 22px;
+              color: var(--accent-color);
+            }
+          }
+
+          .achievement-info {
+            display: flex;
+            flex-direction: column;
+
+            .achievement-value {
+              font-size: 24px;
+              font-weight: 700;
+              color: var(--heading-color);
+              line-height: 1.2;
+            }
+
+            .achievement-label {
+              font-size: 14px;
+              color: color-mix(in srgb, var(--default-color), transparent 25%);
+            }
+          }
+        }
+      }
+    }
+
+    .features-card-wrapper {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .features-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        @media (max-width: 767px) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .feature-card {
+        background-color: var(--surface-color);
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        padding: 25px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        &.feature-primary {
+          border-left: 4px solid var(--accent-color);
+        }
+
+        .feature-icon {
+          margin-bottom: 20px;
+
+          i {
+            font-size: 32px;
+            color: var(--accent-color);
+          }
+        }
+
+        .feature-details {
+          h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+          }
+
+          p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: color-mix(in srgb, var(--default-color), transparent 20%);
+            margin-bottom: 20px;
+          }
+
+          .feature-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 20px;
+
+            .status-indicator {
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              display: inline-block;
+            }
+
+            &.active {
+              background-color: rgba(25, 135, 84, 0.1);
+              color: #198754;
+
+              .status-indicator {
+                background-color: #198754;
+              }
+            }
+
+            &.pending {
+              background-color: rgba(255, 159, 67, 0.1);
+              color: #ff9f43;
+
+              .status-indicator {
+                background-color: #ff9f43;
+              }
+            }
+
+            &.scheduled {
+              background-color: rgba(108, 117, 125, 0.1);
+              color: #6c757d;
+
+              .status-indicator {
+                background-color: #6c757d;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .additional-features {
+    margin-bottom: 50px;
+
+    .additional-feature-card {
+      background-color: var(--surface-color);
+      border-radius: 14px;
+      padding: 30px;
+      height: 100%;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      position: relative;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .icon-container {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+
+        i {
+          font-size: 28px;
+          color: var(--accent-color);
+        }
+      }
+
+      h4 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+        margin-bottom: 30px;
+      }
+
+      .feature-tag {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 13px;
+        font-weight: 500;
+        padding: 5px 12px;
+        border-radius: 20px;
+
+        i {
+          font-size: 14px;
+        }
+
+        &.active {
+          background-color: rgba(25, 135, 84, 0.1);
+          color: #198754;
+        }
+
+        &.pending {
+          background-color: rgba(255, 159, 67, 0.1);
+          color: #ff9f43;
+        }
+
+        &.scheduled {
+          background-color: rgba(108, 117, 125, 0.1);
+          color: #6c757d;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .features-overview {
+      .main-heading {
+        h2 {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .features-overview {
+      .main-heading {
+        h2 {
+          font-size: 26px;
+        }
+
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

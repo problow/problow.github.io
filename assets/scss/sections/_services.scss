@@ -1,0 +1,136 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Services Section
+--------------------------------------------------------------*/
+.services {
+  .services-header {
+    margin-bottom: 4rem;
+
+    @media (max-width: 992px) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .services-intro {
+    padding-right: 2rem;
+
+    @media (max-width: 992px) {
+      padding-right: 0;
+      margin-bottom: 2.5rem;
+    }
+
+    .services-tag {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: var(--contrast-color);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      color: var(--heading-color);
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: color-mix(in srgb, var(--default-color), transparent 20%);
+    }
+  }
+
+  .services-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .stat-item {
+      background: linear-gradient(135deg, var(--surface-color), color-mix(in srgb, var(--surface-color), var(--accent-color) 5%));
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border-left: 4px solid var(--accent-color);
+
+      .stat-number {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--heading-color);
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        display: block;
+        font-size: 0.95rem;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+        font-weight: 500;
+      }
+    }
+  }
+
+  .service-card {
+    height: 100%;
+
+    .service-card-inner {
+      background-color: var(--surface-color);
+      border-radius: 8px;
+      padding: 2rem;
+      height: 100%;
+      transition: all 0.3s ease;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+
+        .service-icon {
+          background-color: var(--accent-color);
+          color: var(--contrast-color);
+        }
+      }
+
+      .service-icon {
+        width: 60px;
+        height: 60px;
+        background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+        color: var(--accent-color);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--heading-color);
+      }
+
+      p {
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+        margin-bottom: 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+    }
+  }
+}

@@ -1,0 +1,367 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Call To Action Section
+--------------------------------------------------------------*/
+.call-to-action {
+  position: relative;
+  padding: 100px 0;
+  background: linear-gradient(170deg,
+      var(--background-color) 0%,
+      color-mix(in srgb, var(--background-color), var(--accent-color) 5%) 100%);
+
+  .cta-wrapper {
+    position: relative;
+    border-radius: 20px;
+    background-color: var(--surface-color);
+    box-shadow: 0 20px 60px color-mix(in srgb, var(--accent-color), transparent 92%);
+    overflow: hidden;
+  }
+
+  // Shapes styling
+  .cta-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+
+      &.shape-1 {
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg,
+            color-mix(in srgb, var(--accent-color), transparent 85%) 0%,
+            color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
+        top: -150px;
+        right: -100px;
+      }
+
+      &.shape-2 {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(225deg,
+            color-mix(in srgb, var(--heading-color), transparent 85%) 0%,
+            color-mix(in srgb, var(--heading-color), transparent 95%) 100%);
+        bottom: -100px;
+        left: 20%;
+      }
+
+      &.shape-3 {
+        width: 150px;
+        height: 150px;
+        background: linear-gradient(45deg,
+            color-mix(in srgb, var(--accent-color), transparent 92%) 0%,
+            color-mix(in srgb, var(--heading-color), transparent 92%) 100%);
+        top: 30%;
+        left: -75px;
+      }
+    }
+  }
+
+  // Content styling
+  .cta-content {
+    position: relative;
+    z-index: 2;
+
+    .badge-custom {
+      display: inline-block;
+      background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+      color: var(--accent-color);
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      line-height: 1.2;
+    }
+
+    p {
+      color: color-mix(in srgb, var(--default-color), transparent 20%);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+  }
+
+  // Benefits styling
+  .benefits-row {
+    margin-top: 2rem;
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+
+      .icon-box {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        background: linear-gradient(135deg,
+            var(--accent-color) 0%,
+            color-mix(in srgb, var(--accent-color), transparent 20%) 100%);
+        color: var(--contrast-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+      }
+
+      .benefit-content {
+        h5 {
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+          color: var(--heading-color);
+        }
+
+        p {
+          margin: 0;
+          font-size: 0.9rem;
+          color: color-mix(in srgb, var(--default-color), transparent 25%);
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+
+  // Action buttons styling
+  .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+
+    .btn {
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      box-shadow: none;
+
+      &.btn-primary {
+        background-color: var(--accent-color);
+        border-color: var(--accent-color);
+        color: var(--contrast-color);
+
+        &:hover {
+          background-color: color-mix(in srgb, var(--accent-color), black 10%);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px color-mix(in srgb, var(--accent-color), transparent 80%);
+        }
+      }
+
+      &.btn-outline {
+        background-color: transparent;
+        border: 2px solid color-mix(in srgb, var(--accent-color), transparent 30%);
+        color: var(--accent-color);
+
+        &:hover {
+          background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+          transform: translateY(-3px);
+        }
+      }
+    }
+
+    .guarantee-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 1rem;
+      color: var(--heading-color);
+      font-size: 0.9rem;
+      font-weight: 500;
+
+      i {
+        color: var(--accent-color);
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  // Image container styling
+  .cta-image-container {
+    position: relative;
+    height: 100%;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    z-index: 2;
+
+    .main-image {
+      position: relative;
+      z-index: 2;
+      max-height: 400px;
+      object-fit: contain;
+    }
+
+    .floating-element {
+      position: absolute;
+      background-color: var(--surface-color);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      z-index: 3;
+
+      i {
+        color: var(--accent-color);
+        font-size: 1.1rem;
+      }
+
+      span {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--heading-color);
+      }
+
+      &.element-1 {
+        top: 20%;
+        left: 0;
+        animation: float1 4s ease-in-out infinite;
+      }
+
+      &.element-2 {
+        bottom: 25%;
+        right: 0;
+        animation: float2 5s ease-in-out infinite;
+      }
+    }
+
+    .pattern-dots {
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      background-image: radial-gradient(color-mix(in srgb, var(--accent-color), transparent 40%) 2px,
+          transparent 2px);
+      background-size: 15px 15px;
+      bottom: 10%;
+      left: 10%;
+      z-index: 1;
+      border-radius: 20px;
+      opacity: 0.6;
+    }
+  }
+
+  // Animations
+  @keyframes float1 {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes float2 {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(10px);
+    }
+  }
+
+  // Responsive styles
+  @media (max-width: 991.98px) {
+    padding: 70px 0;
+
+    .row {
+      flex-direction: column-reverse;
+    }
+
+    .cta-image-container {
+      padding: 2rem;
+      min-height: 350px;
+
+      .floating-element {
+        &.element-1 {
+          top: 15%;
+          left: 10%;
+        }
+
+        &.element-2 {
+          bottom: 15%;
+          right: 10%;
+        }
+      }
+    }
+
+    .cta-content {
+      padding: 2rem !important;
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    .action-buttons {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .btn {
+        width: 100%;
+      }
+
+      .guarantee-badge {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    padding: 50px 0;
+
+    .cta-content {
+      padding: 1.5rem !important;
+
+      h2 {
+        font-size: 1.75rem;
+      }
+    }
+
+    .benefits-row {
+      .col-md-6 {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .cta-image-container {
+      min-height: 300px;
+
+      .floating-element {
+        padding: 0.5rem 0.75rem;
+
+        span {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .shape {
+      transform: scale(0.7);
+    }
+  }
+}

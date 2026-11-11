@@ -1,0 +1,304 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Features Alt Section
+--------------------------------------------------------------*/
+.features-alt {
+  padding-top: 30px;
+  padding-bottom: 60px;
+
+  .nav-tabs {
+    border: none;
+    background: color-mix(in srgb, var(--surface-color), transparent 50%);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+
+    .nav-item {
+      margin-bottom: 15px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .nav-link {
+      padding: 20px;
+      border: none;
+      border-radius: 12px;
+      background: var(--surface-color);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+
+      .d-flex {
+        position: relative;
+        z-index: 1;
+      }
+
+      .icon-box {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: color-mix(in srgb, var(--accent-color), transparent 92%);
+        transition: all 0.4s ease;
+
+        i {
+          font-size: 24px;
+          color: var(--accent-color);
+          transition: all 0.4s ease;
+        }
+      }
+
+      h4 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 0 5px 0;
+        color: var(--heading-color);
+        transition: all 0.4s ease;
+      }
+
+      p {
+        font-size: 14px;
+        margin: 0;
+        color: color-mix(in srgb, var(--default-color), transparent 40%);
+        transition: all 0.4s ease;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+
+        &::before {
+          opacity: 1;
+        }
+
+        .icon-box {
+          background: var(--accent-color);
+
+          i {
+            color: var(--contrast-color);
+          }
+        }
+
+        h4 {
+          color: var(--accent-color);
+        }
+
+        p {
+          color: color-mix(in srgb, var(--default-color), transparent 20%);
+        }
+      }
+
+      &.active {
+        background: var(--accent-color);
+
+        &::before {
+          opacity: 0;
+        }
+
+        .icon-box {
+          background: color-mix(in srgb, var(--contrast-color), transparent 85%);
+
+          i {
+            color: var(--contrast-color);
+          }
+        }
+
+        h4 {
+          color: var(--contrast-color);
+        }
+
+        p {
+          color: color-mix(in srgb, var(--contrast-color), transparent 20%);
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    .content-box {
+      background: var(--surface-color);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+
+      h3 {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--heading-color);
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 15px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 50px;
+          height: 3px;
+          background: var(--accent-color);
+          border-radius: 3px;
+        }
+      }
+
+      p {
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 1.6;
+
+        &.highlight {
+          background: linear-gradient(135deg,
+              color-mix(in srgb, var(--accent-color), transparent 92%),
+              color-mix(in srgb, var(--accent-color), transparent 95%));
+          padding: 20px;
+          border-radius: 12px;
+          position: relative;
+        }
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+        margin: 30px 0 0 0;
+
+        li {
+          display: flex;
+          align-items: center;
+          margin-bottom: 15px;
+          padding-left: 8px;
+          transition: all 0.3s ease;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          i {
+            font-size: 20px;
+            color: var(--accent-color);
+            margin-right: 12px;
+          }
+
+          span {
+            color: color-mix(in srgb, var(--default-color), transparent 20%);
+          }
+
+          &:hover {
+            transform: translateX(5px);
+
+            span {
+              color: var(--default-color);
+            }
+          }
+        }
+      }
+
+      .image-box {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+
+        img {
+          transition: all 0.6s ease;
+        }
+
+        &:hover img {
+          transform: scale(1.05);
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(180deg,
+              transparent 0%,
+              rgba(0, 0, 0, 0.05) 100%);
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  .tab-pane {
+    transition: all 0.4s ease;
+
+    &.fade {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+
+    &.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .nav-tabs {
+      margin-bottom: 30px;
+
+      .nav-link {
+        padding: 15px;
+
+        .icon-box {
+          width: 40px;
+          height: 40px;
+
+          i {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      .content-box {
+        padding: 30px;
+
+        h3 {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .nav-tabs {
+      .nav-item {
+        margin-bottom: 10px;
+      }
+
+      .nav-link {
+        h4 {
+          font-size: 15px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+      }
+    }
+
+    .tab-content {
+      .content-box {
+        padding: 25px;
+
+        h3 {
+          font-size: 22px;
+        }
+
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}

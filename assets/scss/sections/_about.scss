@@ -1,0 +1,152 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+.about {
+  .about-image-wrapper {
+    position: relative;
+    margin-bottom: 3rem;
+
+    img {
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .mission-card {
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 90%;
+      background-color: var(--accent-color);
+      padding: 1.5rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      box-shadow: 0 10px 30px color-mix(in srgb, var(--accent-color), transparent 70%);
+
+      .mission-icon {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: color-mix(in srgb, var(--contrast-color), transparent 85%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+          font-size: 1.75rem;
+          color: var(--contrast-color);
+        }
+      }
+
+      .mission-content {
+        h4 {
+          font-size: 1.25rem;
+          color: var(--contrast-color);
+          margin-bottom: 0.5rem;
+          font-weight: 600;
+        }
+
+        p {
+          font-size: 0.95rem;
+          color: var(--contrast-color);
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .about-content {
+    .tag-badge {
+      display: inline-block;
+      background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+      color: var(--accent-color);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+
+      @media (max-width: 991px) {
+        font-size: 1.75rem;
+      }
+    }
+
+    .about-info {
+      p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        line-height: 1.7;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .values-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 2rem;
+    }
+
+    .values-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      .value-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background-color: color-mix(in srgb, var(--background-color), var(--default-color) 5%);
+        padding: 0.75rem 1.25rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-3px);
+          background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+        }
+
+        .value-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background-color: var(--accent-color);
+
+          i {
+            color: var(--contrast-color);
+            font-size: 14px;
+          }
+        }
+
+        .value-text {
+          font-weight: 500;
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .about-content {
+      margin-top: 3rem;
+    }
+  }
+}

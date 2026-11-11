@@ -1,0 +1,211 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# Faq Section
+--------------------------------------------------------------*/
+.faq {
+  .faq-sidebar {
+    position: sticky;
+    top: 100px;
+
+    .faq-image {
+      margin-bottom: 30px;
+      border-radius: 14px;
+      overflow: hidden;
+
+      img {
+        transition: transform 0.5s ease;
+
+        &:hover {
+          transform: scale(1.04);
+        }
+      }
+    }
+
+    .contact-box {
+      background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+      border-radius: 14px;
+      padding: 30px;
+
+      h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        i {
+          font-size: 24px;
+          color: var(--accent-color);
+        }
+      }
+
+      p {
+        margin-bottom: 20px;
+        font-size: 15px;
+        color: color-mix(in srgb, var(--default-color), transparent 15%);
+      }
+
+      .btn-contact {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: var(--contrast-color);
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px color-mix(in srgb, var(--accent-color), transparent 70%);
+        }
+      }
+    }
+  }
+
+  .faq-tabs {
+    .nav-pills {
+      gap: 15px;
+      border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      padding-bottom: 15px;
+
+      .nav-link {
+        background: transparent;
+        color: color-mix(in srgb, var(--default-color), transparent 30%);
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 10px 25px;
+        transition: all 0.3s ease;
+
+        &.active {
+          background-color: var(--accent-color);
+          color: var(--contrast-color);
+          box-shadow: 0 3px 10px color-mix(in srgb, var(--accent-color), transparent 70%);
+        }
+
+        &:hover:not(.active) {
+          background-color: color-mix(in srgb, var(--default-color), transparent 95%);
+          color: var(--default-color);
+        }
+      }
+    }
+
+    .tab-content {
+      padding-top: 25px;
+    }
+  }
+
+  .faq-item {
+    position: relative;
+    margin-bottom: 20px;
+    background-color: var(--surface-color);
+    border-radius: 14px;
+    box-shadow: 0 3px 10px color-mix(in srgb, var(--default-color), transparent 95%);
+    padding: 25px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px color-mix(in srgb, var(--default-color), transparent 92%);
+    }
+
+    h3 {
+      font-size: 17px;
+      font-weight: 600;
+      padding-right: 35px;
+      margin-bottom: 0;
+      transition: color 0.3s ease;
+    }
+
+    .faq-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: 0.3s ease-in-out;
+      visibility: hidden;
+      opacity: 0;
+
+      p {
+        margin-bottom: 0;
+        padding-top: 15px;
+        font-size: 15px;
+        line-height: 1.6;
+        overflow: hidden;
+        color: color-mix(in srgb, var(--default-color), transparent 20%);
+      }
+    }
+
+    .faq-toggle {
+      position: absolute;
+      right: 25px;
+      top: 25px;
+      font-size: 18px;
+      color: var(--accent-color);
+      transition: transform 0.3s ease;
+    }
+
+    &.faq-active {
+      background-color: color-mix(in srgb, var(--surface-color), var(--accent-color) 3%);
+
+      h3 {
+        color: var(--accent-color);
+      }
+
+      .faq-content {
+        grid-template-rows: 1fr;
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .faq-toggle {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .faq-sidebar {
+      position: relative;
+      top: 0;
+      margin-bottom: 40px;
+
+      .contact-box {
+        text-align: center;
+      }
+    }
+
+    .faq-tabs .nav-pills {
+      flex-wrap: wrap;
+
+      .nav-item {
+        flex: 1 0 30%;
+      }
+
+      .nav-link {
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .faq-tabs .nav-pills .nav-item {
+      flex: 1 0 100%;
+    }
+
+    .faq-item {
+      padding: 20px;
+
+      h3 {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .faq-toggle {
+        right: 20px;
+        top: 20px;
+      }
+    }
+  }
+}
